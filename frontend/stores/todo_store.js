@@ -79,6 +79,7 @@ var TodoStore = {
       url: '/api/todos/' + id,
       data: data,
       success: function(resp) {
+        _todos[idx].done = updated;
         TodoStore.changed();
       }
     });

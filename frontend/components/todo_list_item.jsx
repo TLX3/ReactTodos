@@ -1,5 +1,6 @@
 var React = require('react'),
-    TodoStore = require('../stores/todo_store.js');
+    TodoStore = require('../stores/todo_store.js'),
+    DoneButton = require('./done_button.jsx');
 
 var TodoListItem = React.createClass({
 
@@ -18,6 +19,7 @@ var TodoListItem = React.createClass({
         <div>
           {this.props.listitem.body}
         </div>
+        <DoneButton done={this.props.listitem.done} id={this.props.listitem.id}/>
         <button onClick={this.handleDestroy}> Delete </button>
       </div>
     );
