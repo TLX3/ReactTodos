@@ -35,16 +35,11 @@ var TodoStore = {
     });
   },
 
-  create: function(todo) {
-    $.ajax({
-      type: 'POST',
-      data: todo,
-      url: '/api/todos/',
-      success: function(resp) {
-        _todos.push(resp);
+  create: function (data) {
+      $.post("/api/todos/", { todo: data }, function (todo) {
+        _todos.push(todo);
         TodoStore.changed();
-      }
-    });
+      });
   },
 
   destroy: function(id) {
