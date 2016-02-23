@@ -19,12 +19,6 @@ var TodoListItem = React.createClass({
     this.setState({detailed: !this.state.detailed});
   },
 
-  deleteButton: function () {
-    return (
-      <button onClick={ this.handleDeleteClick }>Delete</button>
-    );
-  },
-
   render: function() {
     return (
       <div>
@@ -33,7 +27,7 @@ var TodoListItem = React.createClass({
         </div>
         <div>
           <h2>Content:</h2>
-          { this.state.detailed ? <TodoDetailView body={this.props.listitem.body} delete={this.deleteButton()} /> : ""}
+          { this.state.detailed ? <TodoDetailView body={this.props.listitem.body} /> : ""}
         </div>
         <DoneButton done={this.props.listitem.done} id={this.props.listitem.id}/>
       </div>

@@ -4,7 +4,13 @@ Rails.application.routes.draw do
 
 
   namespace :api do
-    resources :todos, except: [:edit, :new]
+
+    resources :todos, except: [:edit, :new] do
+      resources :steps, only: [:create, :index]
+    end
+
+    resources :steps, only: [:update, :destroy]
+
   end
-  
+
 end
